@@ -42,21 +42,31 @@ public class StudentServiceImpl implements StudentService {
     @Override
     @Transactional
     public Session createBooking(CreateBookingRequestDto request, Jwt jwt) {
+
         // Find the related entities
         Classroom classroom = classroomRepository.findById(request.getClassroomId())
                 .orElseThrow(() -> new EntityNotFoundException("Classroom not found with id: " + request.getClassroomId()));
         Mentor mentor = mentorRepository.findById(request.getMentorId())
                 .orElseThrow(() -> new EntityNotFoundException("Mentor not found with id: " + request.getMentorId()));
 
-        // --- CORRECTED NAME EXTRACTION ---
+        // --- THIS IS THE FIX: Check for all possible name claims ---
         String studentClerkId = jwt.getSubject();
-        String firstName = jwt.hasClaim("given_name") ? jwt.getClaimAsString("given_name") : "";
-        String lastName = jwt.hasClaim("family_name") ? jwt.getClaimAsString("family_name") : "";
-        String studentName = (firstName + " " + lastName).trim();
+
+        // Check for custom claims first, then fall back to standard OAuth claims
+        String firstName = jwt.hasClaim("firstName") ? jwt.getClaimAsString("firstName") : jwt.getClaimAsString("given_name");
+        String lastName = jwt.hasClaim("lastName") ? jwt.getClaimAsString("lastName") : jwt.getClaimAsString("family_name");
+
+        // Ensure we don't have "null" strings
+        String finalFirstName = (firstName != null) ? firstName : "";
+        String finalLastName = (lastName != null) ? lastName : "";
+
+        String studentName = (finalFirstName + " " + finalLastName).trim();
+
+        // Final fallback if no name claims are present at all
         if (studentName.isEmpty()) {
-            studentName = "Student User"; // Fallback if no name claims are present
+            studentName = "Student User";
         }
-        // --- END OF CORRECTION ---
+        // --- END OF FIX ---
 
         // Create and populate the new session
         Session session = new Session();
@@ -67,7 +77,7 @@ public class StudentServiceImpl implements StudentService {
         session.setSessionDateTime(request.getSessionDateTime());
         session.setDuration(request.getDuration());
         session.setBankSlipUrl(request.getBankSlipUrl());
-        session.setStatus(SessionStatus.PENDING); // Initial status
+        session.setStatus(SessionStatus.PENDING);
 
         return sessionRepository.save(session);
     }
@@ -88,7 +98,7 @@ public class StudentServiceImpl implements StudentService {
         StudentDashboardResponseDto dto = new StudentDashboardResponseDto();
         dto.setClassName(session.getClassroom().getName());
         dto.setMentorName(session.getMentor().getFirstName() + " " + session.getMentor().getLastName());
-        dto.setSessionDate(session.getSessionDateTime());
+        dto.setSessionDate(session.getSessionDateTime().toString() + "Z");
         dto.setStatus(session.getStatus().name());
         return dto;
     }

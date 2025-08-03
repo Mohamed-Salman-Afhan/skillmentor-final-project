@@ -12,12 +12,15 @@ import com.skillmentor_backend.final_project.repository.MentorRepository;
 import com.skillmentor_backend.final_project.repository.SessionRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -62,10 +65,15 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<BookingDetailsResponseDto> getAllBookings() {
-        return sessionRepository.findAll().stream()
-                .map(this::mapSessionToBookingDetailsResponse)
-                .collect(Collectors.toList());
+    public Page<BookingDetailsResponseDto> getAllBookings(Pageable pageable) {
+        // Create a Pageable object that sorts by the most recent session date
+        Pageable sortedByDateDesc = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), Sort.by("sessionDateTime").descending());
+
+        // Fetch a page of sessions from the repository
+        Page<Session> sessionPage = sessionRepository.findAll(sortedByDateDesc);
+
+        // Map the page of entities to a page of DTOs
+        return sessionPage.map(this::mapSessionToBookingDetailsResponse);
     }
 
     @Override
@@ -105,7 +113,7 @@ public class AdminServiceImpl implements AdminService {
         dto.setClassName(session.getClassroom().getName());
         dto.setStudentName(session.getStudentName());
         dto.setMentorName(session.getMentor().getFirstName() + " " + session.getMentor().getLastName());
-        dto.setSessionDate(session.getSessionDateTime());
+        dto.setSessionDate(session.getSessionDateTime().toString() + "Z");
         dto.setStatus(session.getStatus().name());
         return dto;
     }
