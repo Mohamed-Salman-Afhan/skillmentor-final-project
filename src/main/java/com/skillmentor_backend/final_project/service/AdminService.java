@@ -45,7 +45,5 @@ public interface AdminService {
 
     AdminDashboardStatsDto getDashboardStats();
 
-    List<EnrollmentTrendDto> getEnrollmentTrend();
-
-
+    List<DailyBookingsDto> getDailyBookingsTrend();
 }
