@@ -1,8 +1,8 @@
 package com.skillmentor_backend.final_project.service;
 
-import com.skillmentor_backend.final_project.dto.BookingDetailsResponse;
-import com.skillmentor_backend.final_project.dto.CreateClassroomRequest;
-import com.skillmentor_backend.final_project.dto.CreateMentorRequest;
+import com.skillmentor_backend.final_project.dto.BookingDetailsResponseDto;
+import com.skillmentor_backend.final_project.dto.CreateClassroomRequestDto;
+import com.skillmentor_backend.final_project.dto.CreateMentorRequestDto;
 import com.skillmentor_backend.final_project.entity.Classroom;
 import com.skillmentor_backend.final_project.entity.Mentor;
 import com.skillmentor_backend.final_project.entity.Session;
@@ -29,7 +29,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     @Transactional
-    public Classroom createClassroom(CreateClassroomRequest dto) {
+    public Classroom createClassroom(CreateClassroomRequestDto dto) {
         Classroom classroom = new Classroom();
         classroom.setName(dto.getName());
         classroom.setImageUrl(dto.getImageUrl());
@@ -38,7 +38,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     @Transactional
-    public Mentor createMentor(CreateMentorRequest dto) {
+    public Mentor createMentor(CreateMentorRequestDto dto) {
         Mentor mentor = new Mentor();
         // Map all fields from DTO to entity
         mentor.setFirstName(dto.getFirstName());
@@ -62,7 +62,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<BookingDetailsResponse> getAllBookings() {
+    public List<BookingDetailsResponseDto> getAllBookings() {
         return sessionRepository.findAll().stream()
                 .map(this::mapSessionToBookingDetailsResponse)
                 .collect(Collectors.toList());
@@ -70,7 +70,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     @Transactional
-    public BookingDetailsResponse approveBooking(Long id) {
+    public BookingDetailsResponseDto approveBooking(Long id) {
         Session session = sessionRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Booking not found with id: " + id));
 
@@ -85,7 +85,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     @Transactional
-    public BookingDetailsResponse completeBooking(Long id) {
+    public BookingDetailsResponseDto completeBooking(Long id) {
         Session session = sessionRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Booking not found with id: " + id));
 
@@ -99,8 +99,8 @@ public class AdminServiceImpl implements AdminService {
     }
 
     // Helper method to map a Session entity to the response DTO
-    private BookingDetailsResponse mapSessionToBookingDetailsResponse(Session session) {
-        BookingDetailsResponse dto = new BookingDetailsResponse();
+    private BookingDetailsResponseDto mapSessionToBookingDetailsResponse(Session session) {
+        BookingDetailsResponseDto dto = new BookingDetailsResponseDto();
         dto.setBookingId(session.getId());
         dto.setClassName(session.getClassroom().getName());
         dto.setStudentName(session.getStudentName());

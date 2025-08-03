@@ -9,10 +9,8 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookingDetailsResponse {
-    private Long bookingId;
+public class StudentDashboardResponseDto {
     private String className;
-    private String studentName; // Comes from the session entity
     private String mentorName;
     private LocalDateTime sessionDate;
     private String status;

@@ -17,10 +17,10 @@ public class Session {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Directly store student info from Clerk JWT, as per SRS
+    // Directly store student info from Clerk JWT
     @Column(nullable = false)
     private String studentClerkId;
-    private String studentName; // Denormalized for easier display
+    private String studentName;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mentor_id", nullable = false)
@@ -32,6 +32,7 @@ public class Session {
 
     private LocalDateTime sessionDateTime;
     private Integer duration; // In minutes
+    @Column(length = 1024)
     private String bankSlipUrl;
 
     @Enumerated(EnumType.STRING)

@@ -1,6 +1,6 @@
 package com.skillmentor_backend.final_project.service;
 
-import com.skillmentor_backend.final_project.dto.MentorProfileResponse;
+import com.skillmentor_backend.final_project.dto.MentorProfileResponseDto;
 import com.skillmentor_backend.final_project.entity.Mentor;
 
 import java.util.List;
@@ -19,5 +19,5 @@ public interface MentorService {
      * @param id The ID of the mentor.
      * @return A DTO containing the mentor's detailed profile.
      */
-    MentorProfileResponse getMentorProfile(Long id);
+    MentorProfileResponseDto getMentorProfile(Long id);
 }

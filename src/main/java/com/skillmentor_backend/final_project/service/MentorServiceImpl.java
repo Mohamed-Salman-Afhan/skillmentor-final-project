@@ -1,6 +1,6 @@
 package com.skillmentor_backend.final_project.service;
 
-import com.skillmentor_backend.final_project.dto.MentorProfileResponse;
+import com.skillmentor_backend.final_project.dto.MentorProfileResponseDto;
 import com.skillmentor_backend.final_project.entity.Mentor;
 import com.skillmentor_backend.final_project.repository.MentorRepository;
 import com.skillmentor_backend.final_project.repository.SessionRepository;
@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,20 +26,20 @@ public class MentorServiceImpl implements MentorService {
 
     @Override
     @Transactional(readOnly = true)
-    public MentorProfileResponse getMentorProfile(Long id) {
+    public MentorProfileResponseDto getMentorProfile(Long id) {
         // 1. Find the mentor by ID or throw an exception
         Mentor mentor = mentorRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Mentor not found with id: " + id));
 
         // 2. For each class the mentor teaches, count the number of sessions they have
-        List<MentorProfileResponse.MentorClassDto> classDtos = mentor.getClassrooms().stream()
+        List<MentorProfileResponseDto.MentorClassDto> classDtos = mentor.getClassrooms().stream()
                 .map(classroom -> {
                     long studentCount = sessionRepository.countByClassroomIdAndMentorId(classroom.getId(), mentor.getId());
-                    return new MentorProfileResponse.MentorClassDto(classroom.getName(), studentCount);
+                    return new MentorProfileResponseDto.MentorClassDto(classroom.getName(), studentCount);
                 })
-                .collect(Collectors.toList());
+                .toList();
 
         // 3. Assemble and return the final DTO
-        return new MentorProfileResponse(mentor, classDtos);
+        return new MentorProfileResponseDto(mentor, classDtos);
     }
 }
