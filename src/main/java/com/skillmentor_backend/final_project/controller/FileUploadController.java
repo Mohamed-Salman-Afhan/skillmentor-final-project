@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/files")
+@RequestMapping("/files")
 @RequiredArgsConstructor
 public class FileUploadController {
 
@@ -18,7 +18,6 @@ public class FileUploadController {
     @PostMapping("/upload")
     public ResponseEntity<Map<String, String>> uploadFile(@RequestParam("file") MultipartFile file) {
         String url = fileUploadService.uploadFile(file);
-        // Return the URL in a JSON object, e.g., { "url": "http://..." }
         return ResponseEntity.ok(Map.of("url", url));
     }
 }

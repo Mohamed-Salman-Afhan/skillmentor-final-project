@@ -1,6 +1,6 @@
 package com.skillmentor_backend.final_project.controller;
 
-import com.skillmentor_backend.final_project.dto.MentorProfileResponse;
+import com.skillmentor_backend.final_project.dto.MentorProfileResponseDto;
 import com.skillmentor_backend.final_project.entity.Mentor;
 import com.skillmentor_backend.final_project.service.MentorService;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/mentors") // Public endpoint as per SecurityConfig
+@RequestMapping("/mentors") // Public endpoint as per SecurityConfig
 @RequiredArgsConstructor
 public class MentorController {
 
@@ -25,7 +25,7 @@ public class MentorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MentorProfileResponse> getMentorProfile(@PathVariable Long id) {
+    public ResponseEntity<MentorProfileResponseDto> getMentorProfile(@PathVariable Long id) {
         return ResponseEntity.ok(mentorService.getMentorProfile(id));
     }
 }

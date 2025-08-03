@@ -1,8 +1,8 @@
 package com.skillmentor_backend.final_project.service;
 
-import com.skillmentor_backend.final_project.dto.BookingDetailsResponse;
-import com.skillmentor_backend.final_project.dto.CreateClassroomRequest;
-import com.skillmentor_backend.final_project.dto.CreateMentorRequest;
+import com.skillmentor_backend.final_project.dto.BookingDetailsResponseDto;
+import com.skillmentor_backend.final_project.dto.CreateClassroomRequestDto;
+import com.skillmentor_backend.final_project.dto.CreateMentorRequestDto;
 import com.skillmentor_backend.final_project.entity.Classroom;
 import com.skillmentor_backend.final_project.entity.Mentor;
 
@@ -14,32 +14,32 @@ public interface AdminService {
      * @param dto The request object containing classroom details.
      * @return The created Classroom entity.
      */
-    Classroom createClassroom(CreateClassroomRequest dto);
+    Classroom createClassroom(CreateClassroomRequestDto dto);
 
     /**
      * Creates a new mentor and assigns them to specified classrooms.
      * @param dto The request object containing mentor details and classroom IDs.
      * @return The created Mentor entity.
      */
-    Mentor createMentor(CreateMentorRequest dto);
+    Mentor createMentor(CreateMentorRequestDto dto);
 
     /**
      * Retrieves a list of all bookings for the admin dashboard.
      * @return A list of DTOs formatted for the admin view.
      */
-    List<BookingDetailsResponse> getAllBookings();
+    List<BookingDetailsResponseDto> getAllBookings();
 
     /**
      * Approves a pending booking.
      * @param id The ID of the booking session.
      * @return A DTO of the updated booking.
      */
-    BookingDetailsResponse approveBooking(Long id);
+    BookingDetailsResponseDto approveBooking(Long id);
 
     /**
      * Marks an approved booking as completed.
      * @param id The ID of the booking session.
      * @return A DTO of the updated booking.
      */
-    BookingDetailsResponse completeBooking(Long id);
+    BookingDetailsResponseDto completeBooking(Long id);
 }

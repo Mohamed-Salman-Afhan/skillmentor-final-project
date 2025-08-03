@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MentorProfileResponse {
+public class MentorProfileResponseDto {
     private Mentor mentor; // Sending the whole entity for full details
     private List<MentorClassDto> classes;
 

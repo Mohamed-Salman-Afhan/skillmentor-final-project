@@ -1,26 +1,47 @@
 package com.skillmentor_backend.final_project.entity;
 
-import jakarta.persistence.*; // Correct import for JPA
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table(name = "classrooms") // Correct import for JPA
-@Data
+@Table(name = "classrooms")
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Classroom {
-    @Id // Correct import for JPA
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String name;
+    @Column(length = 1024)
     private String imageUrl;
 
+    @ManyToMany(mappedBy = "classrooms", fetch = FetchType.LAZY)
+    private Set<Mentor> mentors;
+
     @OneToMany(mappedBy = "classroom")
+    @JsonIgnore
     private List<Session> sessions;
+
+    // --- Manual equals() and hashCode() to prevent recursion ---
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Classroom classroom = (Classroom) o;
+        return Objects.equals(id, classroom.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

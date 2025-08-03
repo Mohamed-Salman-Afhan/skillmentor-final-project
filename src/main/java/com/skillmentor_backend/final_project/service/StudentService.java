@@ -1,8 +1,8 @@
 package com.skillmentor_backend.final_project.service;
 
-import com.skillmentor_backend.final_project.dto.CreateBookingRequest;
-import com.skillmentor_backend.final_project.dto.StudentDashboardResponse;
-import com.skillmentor_backend.final_project.entity.Classroom;
+import com.skillmentor_backend.final_project.dto.ClassroomResponseDto;
+import com.skillmentor_backend.final_project.dto.CreateBookingRequestDto;
+import com.skillmentor_backend.final_project.dto.StudentDashboardResponseDto;
 import com.skillmentor_backend.final_project.entity.Session;
 import org.springframework.security.oauth2.jwt.Jwt;
 
@@ -14,7 +14,7 @@ public interface StudentService {
      * Retrieves all available classrooms for students to browse.
      * @return A list of Classroom entities.
      */
-    List<Classroom> getAllClasses();
+    List<ClassroomResponseDto> getAllClasses();
 
     /**
      * Creates a new booking session for the authenticated student.
@@ -22,12 +22,12 @@ public interface StudentService {
      * @param jwt The JWT principal of the authenticated user.
      * @return The created Session entity.
      */
-    Session createBooking(CreateBookingRequest request, Jwt jwt);
+    Session createBooking(CreateBookingRequestDto request, Jwt jwt);
 
     /**
      * Retrieves the session history for the authenticated student's dashboard.
      * @param jwt The JWT principal of the authenticated user.
      * @return A list of DTOs formatted for the student dashboard.
      */
-    List<StudentDashboardResponse> getStudentDashboard(Jwt jwt);
+    List<StudentDashboardResponseDto> getStudentDashboard(Jwt jwt);
 }
