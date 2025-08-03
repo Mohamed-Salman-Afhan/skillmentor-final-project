@@ -1,8 +1,6 @@
 package com.skillmentor_backend.final_project.controller;
 
-import com.skillmentor_backend.final_project.dto.BookingDetailsResponseDto;
-import com.skillmentor_backend.final_project.dto.CreateClassroomRequestDto;
-import com.skillmentor_backend.final_project.dto.CreateMentorRequestDto;
+import com.skillmentor_backend.final_project.dto.*;
 import com.skillmentor_backend.final_project.entity.Classroom;
 import com.skillmentor_backend.final_project.entity.Mentor;
 import com.skillmentor_backend.final_project.service.AdminService;
@@ -15,9 +13,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/admin")
-// Use ROLE_admin as Spring Security prefixes authorities with ROLE_ by default
 @PreAuthorize("hasAuthority('ROLE_admin')")
 @RequiredArgsConstructor
 public class AdminController {
@@ -37,9 +36,10 @@ public class AdminController {
     }
 
     @GetMapping("/bookings")
-    // Spring will automatically create a Pageable object from URL params like ?page=0&size=10
-    public ResponseEntity<Page<BookingDetailsResponseDto>> getAllBookings(Pageable pageable) {
-        return ResponseEntity.ok(adminService.getAllBookings(pageable));
+    public ResponseEntity<Page<BookingDetailsResponseDto>> getAllBookings(
+            Pageable pageable,
+            @RequestParam(required = false, defaultValue = "") String searchTerm) { // <-- ADD THIS
+        return ResponseEntity.ok(adminService.getAllBookings(pageable, searchTerm));
     }
 
     @PutMapping("/bookings/{id}/approve")
@@ -51,4 +51,15 @@ public class AdminController {
     public ResponseEntity<BookingDetailsResponseDto> completeBooking(@PathVariable Long id) {
         return ResponseEntity.ok(adminService.completeBooking(id));
     }
+
+    @GetMapping("/dashboard/stats")
+    public ResponseEntity<AdminDashboardStatsDto> getDashboardStats() {
+        return ResponseEntity.ok(adminService.getDashboardStats());
+    }
+
+    @GetMapping("/dashboard/enrollment-trend")
+    public ResponseEntity<List<EnrollmentTrendDto>> getEnrollmentTrend() {
+        return ResponseEntity.ok(adminService.getEnrollmentTrend());
+    }
+
 }
