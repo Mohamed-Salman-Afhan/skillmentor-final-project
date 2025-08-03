@@ -8,12 +8,12 @@ import com.skillmentor_backend.final_project.entity.Mentor;
 import com.skillmentor_backend.final_project.service.AdminService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/admin")
@@ -37,8 +37,9 @@ public class AdminController {
     }
 
     @GetMapping("/bookings")
-    public ResponseEntity<List<BookingDetailsResponseDto>> getAllBookings() {
-        return ResponseEntity.ok(adminService.getAllBookings());
+    // Spring will automatically create a Pageable object from URL params like ?page=0&size=10
+    public ResponseEntity<Page<BookingDetailsResponseDto>> getAllBookings(Pageable pageable) {
+        return ResponseEntity.ok(adminService.getAllBookings(pageable));
     }
 
     @PutMapping("/bookings/{id}/approve")
