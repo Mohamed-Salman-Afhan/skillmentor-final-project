@@ -1,8 +1,6 @@
 package com.skillmentor_backend.final_project.service;
 
-import com.skillmentor_backend.final_project.dto.BookingDetailsResponseDto;
-import com.skillmentor_backend.final_project.dto.CreateClassroomRequestDto;
-import com.skillmentor_backend.final_project.dto.CreateMentorRequestDto;
+import com.skillmentor_backend.final_project.dto.*;
 import com.skillmentor_backend.final_project.entity.Classroom;
 import com.skillmentor_backend.final_project.entity.Mentor;
 import com.skillmentor_backend.final_project.entity.Session;
@@ -65,14 +63,18 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<BookingDetailsResponseDto> getAllBookings(Pageable pageable) {
-        // Create a Pageable object that sorts by the most recent session date
+    public Page<BookingDetailsResponseDto> getAllBookings(Pageable pageable, String searchTerm) {
         Pageable sortedByDateDesc = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), Sort.by("sessionDateTime").descending());
 
-        // Fetch a page of sessions from the repository
-        Page<Session> sessionPage = sessionRepository.findAll(sortedByDateDesc);
+        Page<Session> sessionPage;
+        if (searchTerm != null && !searchTerm.isEmpty()) {
+            // If there's a search term, use the search method
+            sessionPage = sessionRepository.findAllWithSearch(searchTerm, sortedByDateDesc);
+        } else {
+            // Otherwise, get all bookings
+            sessionPage = sessionRepository.findAll(sortedByDateDesc);
+        }
 
-        // Map the page of entities to a page of DTOs
         return sessionPage.map(this::mapSessionToBookingDetailsResponse);
     }
 
@@ -104,6 +106,26 @@ public class AdminServiceImpl implements AdminService {
         session.setStatus(SessionStatus.COMPLETED);
         Session updatedSession = sessionRepository.save(session);
         return mapSessionToBookingDetailsResponse(updatedSession);
+    }
+
+    @Override
+    public AdminDashboardStatsDto getDashboardStats() {
+        AdminDashboardStatsDto stats = new AdminDashboardStatsDto();
+
+        stats.setTotalMentors(mentorRepository.count());
+        stats.setTotalStudents(sessionRepository.countDistinctStudents());
+        stats.setTotalClassrooms(classroomRepository.count());
+        stats.setPendingSessions(sessionRepository.countByStatus(SessionStatus.PENDING));
+        stats.setAcceptedSessions(sessionRepository.countByStatus(SessionStatus.ACCEPTED));
+        stats.setCompletedSessions(sessionRepository.countByStatus(SessionStatus.COMPLETED));
+
+        return stats;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<EnrollmentTrendDto> getEnrollmentTrend() {
+        return sessionRepository.findEnrollmentTrend();
     }
 
     // Helper method to map a Session entity to the response DTO

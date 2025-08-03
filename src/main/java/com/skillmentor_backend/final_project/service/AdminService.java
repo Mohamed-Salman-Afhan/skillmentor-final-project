@@ -1,12 +1,12 @@
 package com.skillmentor_backend.final_project.service;
 
-import com.skillmentor_backend.final_project.dto.BookingDetailsResponseDto;
-import com.skillmentor_backend.final_project.dto.CreateClassroomRequestDto;
-import com.skillmentor_backend.final_project.dto.CreateMentorRequestDto;
+import com.skillmentor_backend.final_project.dto.*;
 import com.skillmentor_backend.final_project.entity.Classroom;
 import com.skillmentor_backend.final_project.entity.Mentor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 public interface AdminService {
     /**
@@ -25,7 +25,7 @@ public interface AdminService {
      */
     Mentor createMentor(CreateMentorRequestDto dto);
 
-    Page<BookingDetailsResponseDto> getAllBookings(Pageable pageable);
+    Page<BookingDetailsResponseDto> getAllBookings(Pageable pageable, String searchTerm);
 
     /**
      * Approves a pending booking.
@@ -42,4 +42,10 @@ public interface AdminService {
      * @return A DTO of the updated booking.
      */
     BookingDetailsResponseDto completeBooking(Long id);
+
+    AdminDashboardStatsDto getDashboardStats();
+
+    List<EnrollmentTrendDto> getEnrollmentTrend();
+
+
 }
