@@ -124,8 +124,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<EnrollmentTrendDto> getEnrollmentTrend() {
-        return sessionRepository.findEnrollmentTrend();
+    public List<DailyBookingsDto> getDailyBookingsTrend() {
+        return sessionRepository.findDailyBookingsTrend();
     }
 
     // Helper method to map a Session entity to the response DTO

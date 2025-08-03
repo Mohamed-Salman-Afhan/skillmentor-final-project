@@ -57,9 +57,8 @@ public class AdminController {
         return ResponseEntity.ok(adminService.getDashboardStats());
     }
 
-    @GetMapping("/dashboard/enrollment-trend")
-    public ResponseEntity<List<EnrollmentTrendDto>> getEnrollmentTrend() {
-        return ResponseEntity.ok(adminService.getEnrollmentTrend());
+    @GetMapping("/dashboard/daily-bookings")
+    public ResponseEntity<List<DailyBookingsDto>> getDailyBookingsTrend() {
+        return ResponseEntity.ok(adminService.getDailyBookingsTrend());
     }
-
 }

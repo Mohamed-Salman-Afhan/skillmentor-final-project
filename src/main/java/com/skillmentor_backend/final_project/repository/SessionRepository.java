@@ -1,6 +1,6 @@
 package com.skillmentor_backend.final_project.repository;
 
-import com.skillmentor_backend.final_project.dto.EnrollmentTrendDto;
+import com.skillmentor_backend.final_project.dto.DailyBookingsDto;
 import com.skillmentor_backend.final_project.entity.Session;
 import com.skillmentor_backend.final_project.entity.SessionStatus;
 import org.springframework.data.domain.Page;
@@ -33,16 +33,16 @@ public interface SessionRepository extends JpaRepository<Session, Long> {
     @Query("SELECT COUNT(DISTINCT s.studentClerkId) FROM Session s")
     long countDistinctStudents();
 
-    @Query(value = "SELECT DATE(session_date_time) as date, COUNT(DISTINCT student_clerk_id) as studentCount " +
-            "FROM sessions " +
-            "GROUP BY DATE(session_date_time) " +
-            "ORDER BY date ASC", nativeQuery = true)
-    List<EnrollmentTrendDto> findEnrollmentTrend();
-
     @Query("SELECT s FROM Session s WHERE " +
             "LOWER(s.studentName) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR " +
             "LOWER(s.classroom.name) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR " +
             "LOWER(s.mentor.firstName) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR " +
             "LOWER(s.mentor.lastName) LIKE LOWER(CONCAT('%', :searchTerm, '%'))")
     Page<Session> findAllWithSearch(@Param("searchTerm") String searchTerm, Pageable pageable);
+
+    @Query(value = "SELECT DATE(session_date_time) as date, COUNT(*) as bookingCount " +
+            "FROM sessions " +
+            "GROUP BY DATE(session_date_time) " +
+            "ORDER BY date ASC", nativeQuery = true)
+    List<DailyBookingsDto> findDailyBookingsTrend();
 }
