@@ -1,0 +1,201 @@
+2025-08-05T06:00:35.245+05:30  INFO 18688 --- [skillmentor-final-project] [main] c.s.f.SkillmentorFinalProjectApplication : Starting SkillmentorFinalProjectApplication using Java 17.0.11 with PID 18688 (D:\STEM LINK\final-project\final-project\target\classes started by Hp in D:\STEM LINK\final-project\final-project)
+2025-08-05T06:00:35.250+05:30  INFO 18688 --- [skillmentor-final-project] [main] c.s.f.SkillmentorFinalProjectApplication : The following 1 profile is active: "prod"
+2025-08-05T06:00:36.498+05:30  INFO 18688 --- [skillmentor-final-project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-05T06:00:36.575+05:30  INFO 18688 --- [skillmentor-final-project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 3 JPA repository interfaces.
+2025-08-05T06:00:37.282+05:30  INFO 18688 --- [skillmentor-final-project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2025-08-05T06:00:37.293+05:30  INFO 18688 --- [skillmentor-final-project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T06:00:37.293+05:30  INFO 18688 --- [skillmentor-final-project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T06:00:37.353+05:30  INFO 18688 --- [skillmentor-final-project] [main] o.a.c.c.C.[.[.[/api/v1/skillmentor]      : Initializing Spring embedded WebApplicationContext
+2025-08-05T06:00:37.354+05:30  INFO 18688 --- [skillmentor-final-project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2040 ms
+2025-08-05T06:00:37.686+05:30  INFO 18688 --- [skillmentor-final-project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-05T06:00:37.755+05:30  INFO 18688 --- [skillmentor-final-project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-05T06:00:37.798+05:30  INFO 18688 --- [skillmentor-final-project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-05T06:00:38.164+05:30  INFO 18688 --- [skillmentor-final-project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-05T06:00:38.202+05:30  INFO 18688 --- [skillmentor-final-project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-05T06:00:39.512+05:30  INFO 18688 --- [skillmentor-final-project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4cf01c41
+2025-08-05T06:00:39.514+05:30  INFO 18688 --- [skillmentor-final-project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-05T06:00:39.635+05:30  WARN 18688 --- [skillmentor-final-project] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-05T06:00:39.865+05:30  INFO 18688 --- [skillmentor-final-project] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-05T06:00:40.883+05:30  INFO 18688 --- [skillmentor-final-project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-05T06:00:41.246+05:30 ERROR 18688 --- [skillmentor-final-project] [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [classrooms]
+2025-08-05T06:00:41.248+05:30  WARN 18688 --- [skillmentor-final-project] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [classrooms]
+2025-08-05T06:00:41.249+05:30  INFO 18688 --- [skillmentor-final-project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-05T06:00:41.796+05:30  INFO 18688 --- [skillmentor-final-project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-05T06:00:41.803+05:30  INFO 18688 --- [skillmentor-final-project] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-08-05T06:00:41.848+05:30  INFO 18688 --- [skillmentor-final-project] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-05T06:00:41.866+05:30 ERROR 18688 --- [skillmentor-final-project] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [classrooms]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.4.jar:3.5.4]
+	at com.skillmentor_backend.final_project.SkillmentorFinalProjectApplication.main(SkillmentorFinalProjectApplication.java:10) ~[classes/:na]
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [classrooms]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:431) ~[spring-orm-6.2.9.jar:6.2.9]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.9.jar:6.2.9]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 15 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [classrooms]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:136) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:46) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:99) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:77) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:289) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.9.jar:6.2.9]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.9.jar:6.2.9]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.9.jar:6.2.9]
+	... 19 common frames omitted
+
+2025-08-05T06:04:12.532+05:30  INFO 20316 --- [skillmentor-final-project] [main] c.s.f.SkillmentorFinalProjectApplication : Starting SkillmentorFinalProjectApplication using Java 17.0.11 with PID 20316 (D:\STEM LINK\final-project\final-project\target\classes started by Hp in D:\STEM LINK\final-project\final-project)
+2025-08-05T06:04:12.536+05:30  INFO 20316 --- [skillmentor-final-project] [main] c.s.f.SkillmentorFinalProjectApplication : The following 1 profile is active: "prod"
+2025-08-05T06:04:13.749+05:30  INFO 20316 --- [skillmentor-final-project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-05T06:04:13.823+05:30  INFO 20316 --- [skillmentor-final-project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 3 JPA repository interfaces.
+2025-08-05T06:04:14.492+05:30  INFO 20316 --- [skillmentor-final-project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2025-08-05T06:04:14.506+05:30  INFO 20316 --- [skillmentor-final-project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T06:04:14.506+05:30  INFO 20316 --- [skillmentor-final-project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T06:04:14.572+05:30  INFO 20316 --- [skillmentor-final-project] [main] o.a.c.c.C.[.[.[/api/v1/skillmentor]      : Initializing Spring embedded WebApplicationContext
+2025-08-05T06:04:14.574+05:30  INFO 20316 --- [skillmentor-final-project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1969 ms
+2025-08-05T06:04:14.856+05:30  INFO 20316 --- [skillmentor-final-project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-05T06:04:14.920+05:30  INFO 20316 --- [skillmentor-final-project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-05T06:04:14.955+05:30  INFO 20316 --- [skillmentor-final-project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-05T06:04:15.254+05:30  INFO 20316 --- [skillmentor-final-project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-05T06:04:15.285+05:30  INFO 20316 --- [skillmentor-final-project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-05T06:04:16.330+05:30  INFO 20316 --- [skillmentor-final-project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@670c171c
+2025-08-05T06:04:16.333+05:30  INFO 20316 --- [skillmentor-final-project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-05T06:04:16.449+05:30  WARN 20316 --- [skillmentor-final-project] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-05T06:04:16.726+05:30  INFO 20316 --- [skillmentor-final-project] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-05T06:04:17.778+05:30  INFO 20316 --- [skillmentor-final-project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-05T06:04:18.608+05:30  WARN 20316 --- [skillmentor-final-project] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-05T06:04:18.609+05:30  WARN 20316 --- [skillmentor-final-project] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk55bw97ycqmsaom05yph7d6373" of relation "mentors" does not exist, skipping
+2025-08-05T06:04:18.993+05:30  INFO 20316 --- [skillmentor-final-project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-05T06:04:19.013+05:30  WARN 20316 --- [skillmentor-final-project] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'securityConfig': Injection of autowired dependencies failed
+2025-08-05T06:04:19.014+05:30  INFO 20316 --- [skillmentor-final-project] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-05T06:04:19.022+05:30  INFO 20316 --- [skillmentor-final-project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-05T06:04:19.403+05:30  INFO 20316 --- [skillmentor-final-project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-05T06:04:19.410+05:30  INFO 20316 --- [skillmentor-final-project] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-08-05T06:04:19.459+05:30  INFO 20316 --- [skillmentor-final-project] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-05T06:04:19.476+05:30 ERROR 20316 --- [skillmentor-final-project] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'securityConfig': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:515) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1459) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.4.jar:3.5.4]
+	at com.skillmentor_backend.final_project.SkillmentorFinalProjectApplication.main(SkillmentorFinalProjectApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'clerk.jwks-url' in value "${clerk.jwks-url}"
+	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81) ~[spring-core-6.2.9.jar:6.2.9]
+	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:423) ~[spring-core-6.2.9.jar:6.2.9]
+	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:128) ~[spring-core-6.2.9.jar:6.2.9]
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:118) ~[spring-core-6.2.9.jar:6.2.9]
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:114) ~[spring-core-6.2.9.jar:6.2.9]
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:293) ~[spring-core-6.2.9.jar:6.2.9]
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:264) ~[spring-core-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:186) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:971) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1650) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 19 common frames omitted
+
+2025-08-05T06:09:13.017+05:30  INFO 19444 --- [skillmentor-final-project] [main] c.s.f.SkillmentorFinalProjectApplication : Starting SkillmentorFinalProjectApplication using Java 17.0.11 with PID 19444 (D:\STEM LINK\final-project\final-project\target\classes started by Hp in D:\STEM LINK\final-project\final-project)
+2025-08-05T06:09:13.021+05:30  INFO 19444 --- [skillmentor-final-project] [main] c.s.f.SkillmentorFinalProjectApplication : The following 1 profile is active: "prod"
+2025-08-05T06:09:14.199+05:30  INFO 19444 --- [skillmentor-final-project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-05T06:09:14.274+05:30  INFO 19444 --- [skillmentor-final-project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 3 JPA repository interfaces.
+2025-08-05T06:09:14.947+05:30  INFO 19444 --- [skillmentor-final-project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2025-08-05T06:09:14.959+05:30  INFO 19444 --- [skillmentor-final-project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T06:09:14.960+05:30  INFO 19444 --- [skillmentor-final-project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T06:09:15.019+05:30  INFO 19444 --- [skillmentor-final-project] [main] o.a.c.c.C.[.[.[/api/v1/skillmentor]      : Initializing Spring embedded WebApplicationContext
+2025-08-05T06:09:15.020+05:30  INFO 19444 --- [skillmentor-final-project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1940 ms
+2025-08-05T06:09:15.328+05:30  INFO 19444 --- [skillmentor-final-project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-05T06:09:15.391+05:30  INFO 19444 --- [skillmentor-final-project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-05T06:09:15.424+05:30  INFO 19444 --- [skillmentor-final-project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-05T06:09:15.748+05:30  INFO 19444 --- [skillmentor-final-project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-05T06:09:15.790+05:30  INFO 19444 --- [skillmentor-final-project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-05T06:09:16.966+05:30  INFO 19444 --- [skillmentor-final-project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7d156f8f
+2025-08-05T06:09:16.968+05:30  INFO 19444 --- [skillmentor-final-project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-05T06:09:17.096+05:30  WARN 19444 --- [skillmentor-final-project] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-05T06:09:17.325+05:30  INFO 19444 --- [skillmentor-final-project] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-05T06:09:18.504+05:30  INFO 19444 --- [skillmentor-final-project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-05T06:09:20.013+05:30  INFO 19444 --- [skillmentor-final-project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-05T06:09:20.311+05:30  INFO 19444 --- [skillmentor-final-project] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-05T06:09:21.380+05:30  WARN 19444 --- [skillmentor-final-project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-05T06:09:21.775+05:30  INFO 19444 --- [skillmentor-final-project] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoints beneath base path '/actuator'
+2025-08-05T06:09:22.352+05:30  INFO 19444 --- [skillmentor-final-project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path '/api/v1/skillmentor'
+2025-08-05T06:09:22.377+05:30  INFO 19444 --- [skillmentor-final-project] [main] c.s.f.SkillmentorFinalProjectApplication : Started SkillmentorFinalProjectApplication in 10.008 seconds (process running for 10.479)
+2025-08-05T06:12:55.573+05:30  INFO 19444 --- [skillmentor-final-project] [http-nio-9100-exec-2] o.a.c.c.C.[.[.[/api/v1/skillmentor]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05T06:12:55.574+05:30  INFO 19444 --- [skillmentor-final-project] [http-nio-9100-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-05T06:12:55.576+05:30  INFO 19444 --- [skillmentor-final-project] [http-nio-9100-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-08-05T06:13:04.979+05:30  WARN 19444 --- [skillmentor-final-project] [http-nio-9100-exec-5] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-08-05T06:55:43.215+05:30  INFO 19444 --- [skillmentor-final-project] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T06:55:43.271+05:30  INFO 19444 --- [skillmentor-final-project] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T06:55:43.278+05:30  INFO 19444 --- [skillmentor-final-project] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-05T06:55:43.281+05:30  INFO 19444 --- [skillmentor-final-project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-05T06:55:44.696+05:30  INFO 19444 --- [skillmentor-final-project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
